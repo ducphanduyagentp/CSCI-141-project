@@ -2,7 +2,7 @@
 file: indexTools.py
 language: python 3
 author: Duc Duy Phan - ddp3945@rit.edu
-description: Implementation
+description: Implementation for Task 0 - Project CSCI-141
 """
 from rit_lib import *
 
@@ -116,10 +116,10 @@ def print_ranking(data, heading="Ranking"):
     print(heading)
     print('The Top 10:')
     for i in range(10):
-        print(' {} : {}'.format(i + 1, data[i]))
+        print('{} : {}'.format(i + 1, data[i]))
     print('The Bottom 10:')
     for i in range(len(data) - 10, len(data)):
-        print(' {} : {}'.format(i + 1, data[i]))
+        print('{} : {}'.format(i + 1, data[i]))
 
 
 def annualize(data):
@@ -176,7 +176,6 @@ def main():
             for e in annual[region]:
                 print(e)
         elif ZIP:
-            print_range(data, region)
             data[region].sort(key=lambda c: c.year)
             for e in data[region]:
                 print(e)

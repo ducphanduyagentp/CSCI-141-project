@@ -34,9 +34,9 @@ mc[mask_start] = ma.masked
 # masked data will be skipped by plotting, leaving a 'gap/break'.
 
 plt.figure()
-plt.plot(t, mc, '*', linestyle="-")
+plt.plot(t, mc, '*', linestyle="-", label='dcmm')
 plt.title('Using masked arrays')
-
+plt.legend(loc='best')
 #################################################
 """
 warning: plt.show() has termination issues and platform differences.
@@ -44,9 +44,9 @@ The 'normal' behavior is for the show() function to block until
 the user has closed the plotting window (x-ing out).
 That is known as interactive python behavior.
 
-On several platforms of python3, x-ing out may hang the process, 
+On several platforms of python3, x-ing out may hang the process,
 which means that whatever comes after in the code execution will not
-execute. 
+execute.
 
 When your program gets hung up, the control-C key combination may
 not work, and neither does control-D (which may log you out!).
@@ -56,7 +56,7 @@ sequence to kill the program is this: kill %1; fg %1
 (The fg command is needed because the python program is waiting to
 output its dying message.)
 
-The primary, preferred solution to this problem is to call 
+The primary, preferred solution to this problem is to call
 matplotlib.use( <backend-str> ) to have set the background drawing
 mechanisms up to be able to continue after the show() blocks.
 
@@ -68,5 +68,3 @@ and links on how to make interactive plotting work more smoothly.
 
 print( "showing now..." )
 plt.show()
-
-

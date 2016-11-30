@@ -51,19 +51,15 @@ def plot_HPI(data, regionList):
     Plot the timeline of the data of specified regions in the regionList
     """
     xyears = []
-    colorString = 'bgrcmyk'
     for region in regionList:
         xyears += [e.year for e in data[region] if not e.year in xyears]
     xyears.sort()
     years = np.array(xyears)
-
     for region in regionList:
         dataRegion = build_plottable_array(xyears, data[region])
-        color = colorString[random.randint(0, len(colorString) - 1)]
+        color = tuple([random.random() for _ in range(3)])
         plt.plot(years, dataRegion, '*', linestyle='-', color=color, label=region)
 
-
-    plt.xticks(np.arange(min(xyears), max(xyears) + 2.0, 2.0))
     print(plt.xticks())
     plt.title('Home Price Indices: {}-{}'.format(xyears[0], xyears[-1]))
     plt.legend(loc='best')
